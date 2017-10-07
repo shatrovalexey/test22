@@ -186,6 +186,7 @@ SET character_set_client = utf8;
 /*!50001 CREATE VIEW `v_cottage` AS SELECT 
  1 AS `id`,
  1 AS `cottage_id`,
+ 1 AS `area_real`,
  1 AS `real_estate_id`,
  1 AS `agent_id`,
  1 AS `street_id`,
@@ -252,7 +253,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `v_cottage` AS select `c1`.`id` AS `id`,`c1`.`id` AS `cottage_id`,`vre1`.`real_estate_id` AS `real_estate_id`,`vre1`.`agent_id` AS `agent_id`,`vre1`.`street_id` AS `street_id`,`vre1`.`building` AS `building`,`vre1`.`room_count` AS `room_count`,`vre1`.`area_live` AS `area_live`,`vre1`.`stage` AS `stage`,`vre1`.`agent_fname` AS `agent_fname`,`vre1`.`agent_sname` AS `agent_sname`,`vre1`.`agent_phone` AS `agent_phone`,`vre1`.`street_title` AS `street_title` from (`cottage` `c1` join `v_real_estate` `vre1` on((`c1`.`real_estate_id` = `vre1`.`real_estate_id`))) */;
+/*!50001 VIEW `v_cottage` AS select `c1`.`id` AS `id`,`c1`.`id` AS `cottage_id`,`c1`.`area_real` AS `area_real`,`vre1`.`real_estate_id` AS `real_estate_id`,`vre1`.`agent_id` AS `agent_id`,`vre1`.`street_id` AS `street_id`,`vre1`.`building` AS `building`,`vre1`.`room_count` AS `room_count`,`vre1`.`area_live` AS `area_live`,`vre1`.`stage` AS `stage`,`vre1`.`agent_fname` AS `agent_fname`,`vre1`.`agent_sname` AS `agent_sname`,`vre1`.`agent_phone` AS `agent_phone`,`vre1`.`street_title` AS `street_title` from (`cottage` `c1` join `v_real_estate` `vre1` on((`c1`.`real_estate_id` = `vre1`.`real_estate_id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -284,4 +285,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-06 18:31:08
+-- Dump completed on 2017-10-07  4:19:11
