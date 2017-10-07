@@ -51,6 +51,7 @@ DROP TABLE IF EXISTS `appart`;
 CREATE TABLE `appart` (
   `id` bigint(22) unsigned NOT NULL AUTO_INCREMENT COMMENT 'идентификатор',
   `real_estate_id` bigint(22) unsigned NOT NULL,
+  `is_active` tinyint(1) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_appart_real_estate_id_real_estate_idx` (`real_estate_id`),
   CONSTRAINT `fk_appart_real_estate_id_real_estate` FOREIGN KEY (`real_estate_id`) REFERENCES `real_estate` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -63,7 +64,7 @@ CREATE TABLE `appart` (
 
 LOCK TABLES `appart` WRITE;
 /*!40000 ALTER TABLE `appart` DISABLE KEYS */;
-INSERT INTO `appart` VALUES (2,1),(3,1);
+INSERT INTO `appart` VALUES (2,1,1),(3,1,1);
 /*!40000 ALTER TABLE `appart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,6 +79,7 @@ CREATE TABLE `cottage` (
   `id` bigint(22) unsigned NOT NULL AUTO_INCREMENT COMMENT 'идентификатор',
   `real_estate_id` bigint(22) unsigned NOT NULL,
   `area_real` decimal(10,2) unsigned NOT NULL COMMENT 'площадь участка',
+  `is_active` tinyint(1) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_cottage_real_estate_id_real_estate_idx` (`real_estate_id`),
   CONSTRAINT `fk_cottage_real_estate_id_real_estate` FOREIGN KEY (`real_estate_id`) REFERENCES `real_estate` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -90,7 +92,7 @@ CREATE TABLE `cottage` (
 
 LOCK TABLES `cottage` WRITE;
 /*!40000 ALTER TABLE `cottage` DISABLE KEYS */;
-INSERT INTO `cottage` VALUES (1,1,333.00),(2,1,12.00);
+INSERT INTO `cottage` VALUES (1,1,333.00,1),(2,1,12.00,1);
 /*!40000 ALTER TABLE `cottage` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -285,4 +287,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-07  4:19:11
+-- Dump completed on 2017-10-07  5:40:53
