@@ -1,4 +1,8 @@
 <?php
+	/** общий класс для видов недвижимости
+	* @package SiteController класс обработки запросов для страниц сайта
+	* @author Shatrov Aleksej <mail@ashatrov.ru>
+	*/
 
 namespace app\controllers;
 

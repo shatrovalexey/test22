@@ -1,4 +1,8 @@
 <?php
+	/**
+	* @package RealestateController класс квартир
+	* @author Shatrov Aleksej <mail@ashatrov.ru>
+	*/
 
 namespace app\controllers;
 
@@ -36,9 +40,11 @@ class RealestateController extends \yii\web\Controller
 		$rsh->andWhere( $args ) ;
 	}
 
+	\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON ;
+
 	$results = $rsh->all( ) ;
 
-	return json_encode( $results ) ;
+	return $results ;
     }
 
 }

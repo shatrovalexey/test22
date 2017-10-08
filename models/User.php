@@ -1,4 +1,8 @@
 <?php
+	/**
+	* @package User класс пользователей
+	* @author Shatrov Aleksej <mail@ashatrov.ru>
+	*/
 
 namespace app\models;
 

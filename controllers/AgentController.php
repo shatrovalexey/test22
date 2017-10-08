@@ -1,4 +1,8 @@
 <?php
+	/**
+	* @package AgentController класс для агентов
+	* @author Shatrov Aleksej <mail@ashatrov.ru>
+	*/
 
 namespace app\controllers;
 
@@ -9,10 +13,13 @@ class AgentController extends \yii\web\Controller
     */
     public function actionIndex( ) {
 	$agent_id = \Yii::$app->request->get( 'id' ) ;
-	$result = ( new \app\models\Agent( ) )
-		->findOne( $agent_id )->getAttributes( ) ;
+	if ( $result = ( new \app\models\Agent( ) )->findOne( $agent_id ) ) {
+		\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON ;
 
-	return json_encode( $result ) ;
+		return $result->getAttributes( ) ;
+	}
+
+	return null ;
     }
 
 }

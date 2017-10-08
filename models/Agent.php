@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "{{%agent}}".
+ * Класс модели для таблицы "{{%agent}}".
  *
  * @property string $id
  * @property string $fname
